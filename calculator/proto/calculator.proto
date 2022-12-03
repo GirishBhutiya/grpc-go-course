@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package calculator;
+
+option go_package = "github.com/GirishBhutiya/grpc-go-course/calculator/proto";
+
+import "sqrt.proto";
+
+message CalculatorRequest{
+    int32 vlue1 = 1;
+    int32 vlue2 = 2;
+}
+
+message CalculatorResponse{
+    int32 result = 1;
+}
+
+service CalculatorService{
+    rpc Calculator (CalculatorRequest) returns (CalculatorResponse);
+    rpc Sqrt (SqrtRequest) returns (SqrtResponse);
+}
